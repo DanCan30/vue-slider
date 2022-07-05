@@ -64,25 +64,16 @@ const app = new Vue (
                 clearInterval(clock);
             },
 
-            restartAutoplay: function() {
+            startAutoplay: function() {
 
-                clock = setInterval( () => {
-                    this.currentImg++;
-                    if (this.currentImg === this.slides.length) {
-                        this.currentImg = 0;}
-                    }, 3000);
+                clock = setInterval(this.nextImg, 3000);
             }
 
 
         },
 
-        beforeCreate: function() {
-
-            clock = setInterval( () => {
-                app.currentImg++;
-                if (app.currentImg === app.slides.length) {
-                    app.currentImg = 0;}
-                }, 3000);
+        created: function() {
+            this.startAutoplay();
         }
     },
 )
