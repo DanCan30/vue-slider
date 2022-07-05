@@ -68,6 +68,20 @@ const app = new Vue (
 
         methods: {
 
+            nextImg: function() {
+                this.currentImg++;
+                if (this.currentImg === this.slides.length) {
+                    this.currentImg = 0;
+                }
+            },
+
+            prevImg: function() {
+                this.currentImg--;
+                if (this.currentImg < 0) {
+                    this.currentImg = this.slides.length - 1;
+                }
+            },
+
         }
     },
 )
