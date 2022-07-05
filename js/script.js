@@ -41,6 +41,7 @@ const app = new Vue (
         methods: {
 
             nextImg: function() {
+
                 this.currentImg++;
                 if (this.currentImg === this.slides.length) {
                     this.currentImg = 0;
@@ -48,6 +49,7 @@ const app = new Vue (
             },
 
             prevImg: function() {
+
                 this.currentImg--;
                 if (this.currentImg < 0) {
                     this.currentImg = this.slides.length - 1;
@@ -57,23 +59,22 @@ const app = new Vue (
             thumbnailInteraction: function(i) {
 
                 this.currentImg = i;
-
             },
 
             stopAutoplayOnHover: function() {
-                clearInterval(clock);
+
+                clearInterval(this.clock);
             },
 
             startAutoplay: function() {
 
-                clock = setInterval(this.nextImg, 3000);
-            }
-
+                this.clock = setInterval(this.nextImg, 3000);
+            },
 
         },
 
         created: function() {
             this.startAutoplay();
-        }
+        },
     },
 )
