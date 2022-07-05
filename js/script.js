@@ -36,7 +36,7 @@ const app = new Vue (
 
             currentImg: 0,
 
-            // currentThumbnail: "",
+            currentThumbnail: "",
 
             clock: "",
 
@@ -76,21 +76,21 @@ const app = new Vue (
                 this.currentImg++;
                 if (this.currentImg === this.slides.length) {
                     this.currentImg = 0;
-                }
+                };
             },
 
             prevImg: function() {
                 this.currentImg--;
                 if (this.currentImg < 0) {
                     this.currentImg = this.slides.length - 1;
-                }
+                };
             },
 
-            // thumbnailInteraction: function(i) {
+            thumbnailInteraction: function(i) {
 
-            //     this.currentImg = i;
+                this.currentImg = i;
 
-            // },
+            },
 
             stopAutoplayOnHover: function() {
                 clearInterval(clock);
