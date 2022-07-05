@@ -36,6 +36,10 @@ const app = new Vue (
 
             currentImg: 0,
 
+            // currentThumbnail: "",
+
+            clock: "",
+
             slides: [
             {
                 image: 'img/01.jpg',
@@ -82,6 +86,35 @@ const app = new Vue (
                 }
             },
 
+            // thumbnailInteraction: function(i) {
+
+            //     this.currentImg = i;
+
+            // },
+
+            stopAutoplayOnHover: function() {
+                clearInterval(clock);
+            },
+
+            restartAutoplay: function() {
+
+                clock = setInterval( () => {
+                    this.currentImg++;
+                    if (this.currentImg === this.slides.length) {
+                        this.currentImg = 0;}
+                    }, 3000);
+            }
+
+
+        },
+
+        beforeCreate: function() {
+
+            clock = setInterval( () => {
+                app.currentImg++;
+                if (app.currentImg === app.slides.length) {
+                    app.currentImg = 0;}
+                }, 3000);
         }
     },
 )
